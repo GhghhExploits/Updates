@@ -23,15 +23,15 @@ TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0.0444444455, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 52, 0, 50)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Created 4/8/23 at 8:34 PM."
+TextLabel.Text = "Created"
 TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
 TextLabel.TextSize = 14.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 -- Scripts:
 
-local function APMXZN_fake_script() -- ScreenGui.LocalScript 
-	local script = Instance.new('LocalScript', ScreenGui)
+local function EUJQG_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
 
 	local UIS = game:GetService('UserInputService')
 	local frame = script.Parent
@@ -69,4 +69,4 @@ local function APMXZN_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 end
-coroutine.wrap(APMXZN_fake_script)()
+coroutine.wrap(EUJQG_fake_script)()
