@@ -6,6 +6,8 @@
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
 
 --Properties:
 
@@ -28,9 +30,20 @@ TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
 TextLabel.TextSize = 14.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton.Position = UDim2.new(0.838888884, 0, 0, 0)
+TextButton.Size = UDim2.new(0, 58, 0, 50)
+TextButton.Font = Enum.Font.SourceSansBold
+TextButton.Text = "X"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 20.000
+
+UICorner.Parent = TextButton
+
 -- Scripts:
 
-local function EUJQG_fake_script() -- Frame.LocalScript 
+local function VIHEB_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
 	local UIS = game:GetService('UserInputService')
@@ -69,4 +82,14 @@ local function EUJQG_fake_script() -- Frame.LocalScript
 	end)
 	
 end
-coroutine.wrap(EUJQG_fake_script)()
+coroutine.wrap(VIHEB_fake_script)()
+local function EESH_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local Frame = script.Parent.Parent
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		Frame.Visible = false
+	end)
+end
+coroutine.wrap(EESH_fake_script)()
