@@ -23,7 +23,50 @@ TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0.0444444455, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 52, 0, 50)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Not Updated yet just made 4/8/23"
+TextLabel.Text = "Created 4/8/23 at 8:34 PM."
 TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
 TextLabel.TextSize = 14.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function APMXZN_fake_script() -- ScreenGui.LocalScript 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+	 local delta = input.Position - dragStart
+	 local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+	  startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	 game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+	 if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+	  dragToggle = true
+	  dragStart = input.Position
+	  startPos = frame.Position
+	  input.Changed:Connect(function()
+	   if input.UserInputState == Enum.UserInputState.End then
+	    dragToggle = false
+	   end
+	  end)
+	 end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+	 if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	  if dragToggle then
+	   updateInput(input)
+	  end
+	 end
+	end)
+	
+end
+coroutine.wrap(APMXZN_fake_script)()
